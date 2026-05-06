@@ -1,6 +1,10 @@
 package structs
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/PaulFWatts/complete_go/library"
+)
 
 // RunStructs demonstrates Go Struct concepts
 func RunStructs() {
@@ -8,4 +12,10 @@ func RunStructs() {
 	fmt.Println()
 	fmt.Print("Press Enter to continue...")
 	fmt.Scanln()
+
+
+	fmt.Println()
+	fmt.Print("Press Enter to clear the console...")
+	fmt.Scanln()
+	library.ClearScreen()
 }

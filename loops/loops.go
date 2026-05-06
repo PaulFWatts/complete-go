@@ -1,6 +1,11 @@
 package loops
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/PaulFWatts/complete_go/library"
+)
+
 // RunLoops demonstrates Go loops concepts
 func RunLoops() {
 	fmt.Println("*** Section 3 - Loops ***")
@@ -42,4 +47,7 @@ func RunLoops() {
 		count++
 	}
 	fmt.Println()
+	fmt.Print("Press Enter to clear the console...")
+	fmt.Scanln()
+	library.ClearScreen()
 }

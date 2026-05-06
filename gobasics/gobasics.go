@@ -1,9 +1,9 @@
 package gobasics
 
 import (
-
 	"fmt"
 
+	"github.com/PaulFWatts/complete_go/library"
 )
 
 type Person struct {
@@ -61,7 +61,6 @@ func RunBasics() {
 	fmt.Printf("The sum of 4 and 6 is: %d\n", sum)
 	fmt.Printf("The product of 4 and 6 is: %d\n", product)
 	fmt.Println()
-
 
 	// Arrays and Slices
 	var arr [5]int = [5]int{1, 2, 3, 4, 5}
@@ -135,6 +134,11 @@ func RunBasics() {
 	fmt.Printf("Person1's age is: %d\n", person1.Age)
 	fmt.Printf("Person1's active status is: %v\n", person1.Active)
 	fmt.Println()
+
+	fmt.Print("Press Enter to clear the console...")
+	fmt.Scanln()
+	library.ClearScreen()
+
 }
 
 func add(a int, b int) int {
