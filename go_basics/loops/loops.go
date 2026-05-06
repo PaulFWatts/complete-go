@@ -3,10 +3,10 @@ package loops
 import (
 	"fmt"
 
-	"github.com/PaulFWatts/complete_go/library"
+	"github.com/PaulFWatts/complete_go/go_basics/library"
 )
 
-// RunLoops demonstrates Go loops concepts
+// RunLoops demonstrates Go loops concepts.
 func RunLoops() {
 	fmt.Println("*** Section 3 - Loops ***")
 	fmt.Println()
@@ -14,7 +14,6 @@ func RunLoops() {
 	fmt.Scanln()
 
 	// Control Structures
-
 	age := 65
 	if age < 18 {
 		fmt.Println("You are a minor.")

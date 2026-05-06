@@ -3,7 +3,7 @@ package gobasics
 import (
 	"fmt"
 
-	"github.com/PaulFWatts/complete_go/library"
+	"github.com/PaulFWatts/complete_go/go_basics/library"
 )
 
 type Person struct {
@@ -12,7 +12,7 @@ type Person struct {
 	Active bool
 }
 
-// RunBasics demonstrates Go basics concepts
+// RunBasics demonstrates Go basics concepts.
 func RunBasics() {
 	fmt.Println("*** Section 1 - Basics ***")
 	fmt.Println()
@@ -53,7 +53,6 @@ func RunBasics() {
 	fmt.Println()
 
 	// Functions
-
 	result := add(5, 3)
 	fmt.Printf("The result of adding 5 and 3 is: %d\n", result)
 
@@ -138,7 +137,6 @@ func RunBasics() {
 	fmt.Print("Press Enter to clear the console...")
 	fmt.Scanln()
 	library.ClearScreen()
-
 }
 
 func add(a int, b int) int {
