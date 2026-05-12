@@ -28,5 +28,6 @@ go build ./api_project
 
 ## Notes
 
+- Because this repository is a multi-module workspace, avoid `go build ./...` from the root; build the modules explicitly instead.
 - `go_basics` contains the current demo code, refactored to live entirely inside that app.
 - `api_project` starts with a `main.go` and `go.mod` only, ready for new work.

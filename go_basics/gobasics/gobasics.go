@@ -2,6 +2,7 @@ package gobasics
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/PaulFWatts/complete_go/go_basics/library"
 )
@@ -17,15 +18,17 @@ func RunBasics() {
 	fmt.Println("*** Section 1 - Basics ***")
 	fmt.Println()
 	fmt.Print("Press Enter to continue...")
-	fmt.Scanln()
+	if _, err := fmt.Scanln(); err != nil {
+		fmt.Println("Unable to read input:", err)
+	}
 
 	fmt.Println("Hello, World!")
 
 	// Constants and Variables
-	var name string = "John"
-	var Myage int = 30
-	var isActive bool = true
-	fmt.Printf("Name: %s, Age: %d, Active: %v\n", name, Myage, isActive)
+	var name = "John"
+	var age = 30
+	active := time.Now().Unix()%2 == 0
+	fmt.Printf("Name: %s, Age: %d, Active: %v\n", name, age, active)
 
 	// Short variable declaration
 	city := "New York"
@@ -56,20 +59,20 @@ func RunBasics() {
 	result := add(5, 3)
 	fmt.Printf("The result of adding 5 and 3 is: %d\n", result)
 
-	sum, product := calulateSumAndProduct(4, 6)
+	sum, product := calculateSumAndProduct(4, 6)
 	fmt.Printf("The sum of 4 and 6 is: %d\n", sum)
 	fmt.Printf("The product of 4 and 6 is: %d\n", product)
 	fmt.Println()
 
 	// Arrays and Slices
-	var arr [5]int = [5]int{1, 2, 3, 4, 5}
+	var arr = [5]int{1, 2, 3, 4, 5}
 	fmt.Printf("Array: %v\n", arr)
 	fmt.Printf("The array size is: %d\n", len(arr))
 	fmt.Println("This is the last value", arr[len(arr)-1])
 	fmt.Println()
 
 	// Multi-dimensional array
-	var matrix [2][3]int = [2][3]int{
+	var matrix = [2][3]int{
 		{1, 2, 3},
 		{4, 5, 6},
 	}
@@ -88,7 +91,7 @@ func RunBasics() {
 		fmt.Printf("Item: %d, %s is %d years old, active: %v\n",
 			i, person.Name, person.Age, person.Active)
 	}
-	fmt.Printf("the slice size is: %d\n", len(people))
+	fmt.Printf("The slice size is: %d\n", len(people))
 	fmt.Println()
 
 	// Slice copy of an array
@@ -135,15 +138,19 @@ func RunBasics() {
 	fmt.Println()
 
 	fmt.Print("Press Enter to clear the console...")
-	fmt.Scanln()
-	library.ClearScreen()
+	if _, err := fmt.Scanln(); err != nil {
+		fmt.Println("Unable to read input:", err)
+	}
+	if err := library.ClearScreen(); err != nil {
+		fmt.Println("Unable to clear the console:", err)
+	}
 }
 
 func add(a int, b int) int {
 	return a + b
 }
 
-func calulateSumAndProduct(x int, y int) (int, int) {
+func calculateSumAndProduct(x int, y int) (int, int) {
 	sum := x + y
 	product := x * y
 	return sum, product

@@ -2,6 +2,7 @@ package loops
 
 import (
 	"fmt"
+	"math/rand/v2"
 
 	"github.com/PaulFWatts/complete_go/go_basics/library"
 )
@@ -11,17 +12,13 @@ func RunLoops() {
 	fmt.Println("*** Section 3 - Loops ***")
 	fmt.Println()
 	fmt.Print("Press Enter to continue...")
-	fmt.Scanln()
+	if _, err := fmt.Scanln(); err != nil {
+		fmt.Println("Unable to read input:", err)
+	}
 
 	// Control Structures
-	age := 65
-	if age < 18 {
-		fmt.Println("You are a minor.")
-	} else if age >= 18 && age < 65 {
-		fmt.Println("You are an adult.")
-	} else {
-		fmt.Println("You are a senior.")
-	}
+	age := rand.IntN(91) + 10
+	fmt.Println(classifyAge(age))
 	fmt.Println()
 
 	day := "Friday"
@@ -47,6 +44,20 @@ func RunLoops() {
 	}
 	fmt.Println()
 	fmt.Print("Press Enter to clear the console...")
-	fmt.Scanln()
-	library.ClearScreen()
+	if _, err := fmt.Scanln(); err != nil {
+		fmt.Println("Unable to read input:", err)
+	}
+	if err := library.ClearScreen(); err != nil {
+		fmt.Println("Unable to clear the console:", err)
+	}
+}
+
+func classifyAge(age int) string {
+	if age < 18 {
+		return "You are a minor."
+	}
+	if age < 65 {
+		return "You are an adult."
+	}
+	return "You are a senior."
 }
