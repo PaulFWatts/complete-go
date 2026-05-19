@@ -69,6 +69,14 @@ func RunStructs() {
 	fmt.Printf("Manager: %s (age %d)\n", emp.Manager.Name, emp.Manager.Age)
 	fmt.Println()
 
+	//
+
+	fmt.Println("name before: ", person.Name)
+	person.modifyPersonName("John")
+	fmt.Println("name after: ", person.Name)
+
+	fmt.Printf("Address: %p\n", &person)
+
 	fmt.Print("Press Enter to clear the console...")
 	if _, err := fmt.Scanln(); err != nil {
 		fmt.Println("Unable to read input:", err)
@@ -76,4 +84,9 @@ func RunStructs() {
 	if err := library.ClearScreen(); err != nil {
 		fmt.Println("Unable to clear the console:", err)
 	}
+}
+
+func (p *Person) modifyPersonName(name string) {
+	p.Name = name
+	fmt.Println("inside scope: new name", p.Name)
 }
