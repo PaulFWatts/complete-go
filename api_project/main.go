@@ -1,8 +1,35 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+	"time"
 
-// main is the starter entrypoint for API_Project.
+	"github.com/PaulFWatts/complete_go/api_project/internal/app"
+)
+
 func main() {
-	fmt.Println("API_Project is ready.")
+	app, err := app.NewApplication()
+	if err != nil {
+		panic(err)
+	}
+
+	app.Logger.Println("Application started successfully")
+
+	http.HandleFunc("/health", HealthCheck)
+	server := &http.Server{
+		Addr:         ":8080",
+		IdleTimeout:  time.Minute,
+		ReadTimeout:  10 * time.Second,
+		WriteTimeout: 30 * time.Second,
+	}
+
+	err = server.ListenAndServe()
+	if err != nil {
+		app.Logger.Fatal(err)
+	}
+}
+
+func HealthCheck(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Status is available\n")
 }
