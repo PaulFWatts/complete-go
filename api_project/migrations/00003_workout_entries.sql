@@ -16,7 +16,7 @@ CONSTRAINT valid_workout_entry CHECK (
 (reps IS NULL OR duration_seconds IS NULL)
 )
 )
- -- +goose StatementEnd
+-- +goose StatementEnd
 
 -- +goose Down
 -- +goose StatementBegin
